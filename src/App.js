@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import "@aws-amplify/ui-react/styles.css";
-import { API, Storage } from 'aws-amplify';
+import { API, Storage } from "aws-amplify";
 import {
     Button,
     Flex,
@@ -11,7 +11,7 @@ import {
     TextField,
     View,
     withAuthenticator,
-} from '@aws-amplify/ui-react';
+} from "@aws-amplify/ui-react";
 import { listNotes } from "./graphql/queries";
 import {
     createNote as createNoteMutation,
@@ -120,15 +120,14 @@ const App = ({ signOut }) => {
                     </Flex>
                 ))}
             </View>
-            <Button onClick={signOut}>Sign Out</Button>
             <View
                 name="image"
                 as="input"
                 type="file"
                 style={{ alignSelf: "end" }}
             />
+            <Button onClick={signOut}>Sign Out</Button>
         </View>
-
     );
 };
 
