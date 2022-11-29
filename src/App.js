@@ -57,7 +57,6 @@ const App = ({ signOut }) => {
         fetchNotes();
         event.target.reset();
     }
-
     async function deleteNote({ id, name }) {
         const newNotes = notes.filter((note) => note.id !== id);
         setNotes(newNotes);
@@ -69,9 +68,17 @@ const App = ({ signOut }) => {
     }
 
     return (
+
         <View className="App">
             <Heading level={1}>My Notes App</Heading>
+
             <View as="form" margin="3rem 0" onSubmit={createNote}>
+                <View
+                    name="image"
+                    as="input"
+                    type="file"
+                    style={{ alignSelf: "end" }}
+                />
                 <Flex direction="row" justifyContent="center">
                     <TextField
                         name="name"
@@ -94,6 +101,7 @@ const App = ({ signOut }) => {
                     </Button>
                 </Flex>
             </View>
+
             <Heading level={2}>Current Notes</Heading>
             <View margin="3rem 0">
                 {notes.map((note) => (
@@ -120,12 +128,7 @@ const App = ({ signOut }) => {
                     </Flex>
                 ))}
             </View>
-            <View
-                name="image"
-                as="input"
-                type="file"
-                style={{ alignSelf: "end" }}
-            />
+
             <Button onClick={signOut}>Sign Out</Button>
         </View>
     );
